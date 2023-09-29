@@ -33,16 +33,16 @@
 
                         <form class="auth-form login-form" method="post" action="{{ route('handleLogin') }}">
                             @csrf
-                            @method('POST')
+                            @method('POST') 
 
-                            {{-- @if ($errors)
+                            {{-- @if ($errors) 
                             @endif --}}
 
                             <p class="text-danger text-center">
 
                             </p>
 
-                            <div class="email mb-3">
+                            <div class="email mb-3"> 
 
                                 <label class="sr-only" for="signin-email">Email</label>
                                 <input id="signin-email" name="email" type="email" class="form-control signin-email"
