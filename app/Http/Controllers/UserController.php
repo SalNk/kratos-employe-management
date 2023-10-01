@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -20,19 +21,17 @@ class UserController extends Controller
         return view('auth.register');
     }
 
-    public function handleLogin(UserRequest $request)
+    public function handleLogin(LoginRequest $loginRequest)
     {
-        // $credentials = $request->only(['email', 'password']);
-        // if (Auth::attempt($credentials)) {
-        //     return redirect()->route('dashbord');
-        // } else {
-        //     return redirect()->back();
-        // }
+        $credentials = $loginRequest->only(['email', 'password']);
+        // dd($credentials);
 
-        if ($request) {
-            return redirect()->route('dashbord');
-        } else {
-            return redirect()->back();
+        if (Auth::attempt($credentials)) {
+            // $request->session()->regenerate();
+
+            return redirect()->route('dashboard');
+        }else{
+            return redirect()->back()->with('error', 'Données incorrectes');
         }
     }
     public function handleRegister(UserRequest $request)
@@ -47,7 +46,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            return redirect()->route('dashbord');
+            return redirect()->route('dashboard');
         } else {
             return redirect()->back();
         }

@@ -31,18 +31,19 @@
                     <h2 class="auth-heading text-center mb-5">Connexion</h2>
                     <div class="auth-form-container text-start">
 
-                        <form class="auth-form login-form" method="post" action="{{ route('handleLogin') }}">
+                        <form class="auth-form login-form" method="post" action="{{ route('login') }}">
                             @csrf
-                            @method('POST') 
+                            @method('POST')
 
-                            {{-- @if ($errors) 
-                            @endif --}}
+                            @if (session()->has('error'))
+                                <p class="text-danger">{{ session()->get('error') }}</p>
+                            @endif
 
                             <p class="text-danger text-center">
 
                             </p>
 
-                            <div class="email mb-3"> 
+                            <div class="email mb-3">
 
                                 <label class="sr-only" for="signin-email">Email</label>
                                 <input id="signin-email" name="email" type="email" class="form-control signin-email"

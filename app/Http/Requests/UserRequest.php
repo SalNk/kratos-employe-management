@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5',
-            'email' => 'required|email|',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:8'
         ];
     }
@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
         return [
             'name.required' => 'Veuillez saisir votre nom',
             'name.min' => 'Le nom doit être de minimum 5 caractères',
-            'email.required' => 'L\'adresse mail est requis',
+            'email.required' => 'L\'adresse mail est requis',   
             'email.email' => 'Le format du mail est incorrect',
             'email.unique' => 'Cette adresse mail existe déjà dans la base de données',
             'password.required' => 'Votre mot de passe est incorrect',

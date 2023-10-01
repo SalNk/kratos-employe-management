@@ -15,7 +15,7 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/dashbord', [PageController::class, 'show'])->name('dashbord');
+Route::get('/dashboard', [PageController::class, 'show'])->name('dashboard');
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'handleLogin'])->name('login');
