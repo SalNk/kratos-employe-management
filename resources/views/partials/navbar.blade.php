@@ -1,6 +1,5 @@
-          
-
-          <div class="container-fluid py-2">
+ <div class="app-header-inner">
+            <div class="container-fluid py-2">
                 <div class="app-header-content">
                     <div class="row justify-content-between align-items-center">
 
@@ -147,7 +146,7 @@
                             <div class="app-utility-item app-user-dropdown dropdown">
                                 <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown"
                                     href="#" role="button" aria-expanded="false"><img
-                                        src={{ asset('images/user.png') }} alt="user profile"></a>
+                                        src="assets/images/user.png" alt="user profile"></a>
                                 <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
                                     <li><a class="dropdown-item" href="account.html">Account</a></li>
                                     <li><a class="dropdown-item" href="settings.html">Settings</a></li>
@@ -161,3 +160,4 @@
                     </div><!--//row-->
                 </div><!--//app-header-content-->
             </div><!--//container-fluid-->
+        </div><!--//app-header-inner-->

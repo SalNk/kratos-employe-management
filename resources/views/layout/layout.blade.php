@@ -14,28 +14,22 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- FontAwesome JS-->
-    <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+    <script defer src={{ asset('assets/plugins/fontawesome/js/all.min.js') }}></script>
 
     <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href={{ asset('css/portal.css') }}>
+    <link id="theme-style" rel="stylesheet" href={{ asset('assets/css/portal.css') }}>
 
 </head>
 
 <body class="app">
     <header class="app-header fixed-top">
-        <div class="app-header-inner">
-            @include('partials.navbar')
-        </div><!--//app-header-inner-->
-
-        <div id="app-sidepanel" class="app-sidepanel">
-            @include('partials.sidebar')
-        </div><!--//app-sidepanel-->
-
+        @include('partials.navbar')
+        @include('partials.sidebar')
     </header><!--//app-header-->
 
     <div class="app-wrapper">
 
-        @yield('content')
+         @yield('content')
 
         @include('partials.footer')
 
@@ -43,15 +37,15 @@
 
 
     <!-- Javascript -->
-    <script src={{ asset('plugins/popper.min.js') }}></script>
-    <script src={{ asset('bootstrap/js/bootstrap.min.js') }}></script>
+    <script src={{ asset('assets/plugins/popper.min.js') }}></script>
+    <script src={{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}></script>
 
     <!-- Charts JS -->
-    <script src={{ asset('plugins/chart.js/chart.min.js') }}></script>
-    <script src={{ asset('js/index-charts.js') }}></script>
+    <script src={{ asset('assets/plugins/chart.js/chart.min.js') }}></script>
+    <script src={{ asset('assets/js/index-charts.js') }}></script>
 
     <!-- Page Specific JS -->
-    <script src={{ asset('js/app.js') }}></script>
+    <script src={{ asset('assets/js/app.js') }}></script>
 
 </body>
 
