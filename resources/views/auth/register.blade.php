@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+     <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -14,10 +14,10 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- FontAwesome JS-->
-    <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+    <script defer src={{ asset('assets/plugins/fontawesome/js/all.min.js') }}></script>
 
     <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href={{ asset('css/portal.css') }}>
+    <link id="theme-style" rel="stylesheet" href={{ asset('assets/css/portal.css') }}>
 
 </head>
 

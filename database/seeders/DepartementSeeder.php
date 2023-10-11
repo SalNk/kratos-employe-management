@@ -2,19 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\Departement;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class DepartementSeeder extends Seeder
 {
-    use WithoutModelEvents;
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
-        $this->call([
-            DepartementSeeder::class
-        ]);
+        Departement::factory(50)->create();
     }
 }

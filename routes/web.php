@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,15 @@ Route::post('/register', [UserController::class, 'handleRegister'])->name('regis
 
 Route::middleware('auth')->group(function(){
     Route::get('/dashboard', [PageController::class, 'show'])->name('dashboard');
+
+    Route::prefix('/departement')->group(function () {
+        Route::get('/', [DepartementController::class, 'index'])->name('departement.index');
+        Route::get('/create', [DepartementController::class, 'create'])->name('departement.create');
+        Route::post('/create', [DepartementController::class, 'store'])->name('departement.store');
+        Route::get('/edit/{departement}', [DepartementController::class, 'edit'])->name('departement.edit');
+        Route::get('/update/{departement}', [DepartementController::class, 'update'])->name('departement.update');
+        Route::get('/delete/{departement}', [DepartementController::class, 'delete'])->name('departement.delete');
+    });
 
     Route::prefix('/employe')->group(function(){
         Route::get('/', [EmployeController::class, 'index'])->name('employe.index');
