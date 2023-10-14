@@ -6,7 +6,7 @@
 
             <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">Orders</h1>
+                    <h1 class="app-page-title mb-0">Employés</h1>
                 </div>
                 <div class="col-auto">
                     <div class="page-utilities">
@@ -62,7 +62,11 @@
                     aria-selected="false">Cancelled</a>
             </nav>
 
-
+            @if (Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
             <div class="tab-content" id="orders-table-tab-content">
                 <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
                     <div class="app-card app-card-orders-table shadow-sm mb-5">
@@ -106,7 +110,7 @@
 
                         </div><!--//app-card-body-->
                     </div><!--//app-card-->
-                 <nav class="app-pagination">
+                    <nav class="app-pagination">
                         <ul class="pagination justify-content-center">
                             {{ $employes->links() }}
                             </li>
