@@ -24,7 +24,7 @@ Route::post('/login', [UserController::class, 'handleLogin'])->name('login');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'handleRegister'])->name('register');
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [PageController::class, 'show'])->name('dashboard');
 
     Route::prefix('/departement')->group(function () {
@@ -36,9 +36,12 @@ Route::middleware('auth')->group(function(){
         Route::get('/delete/{departement}', [DepartementController::class, 'delete'])->name('departement.delete');
     });
 
-    Route::prefix('/employe')->group(function(){
+    Route::prefix('/employe')->group(function () {
         Route::get('/', [EmployeController::class, 'index'])->name('employe.index');
         Route::get('/create', [EmployeController::class, 'create'])->name('employe.create');
         Route::get('/edit/{employe}', [EmployeController::class, 'edit'])->name('employe.edit');
+        Route::post('/create', [EmployeController::class, 'store'])->name('employe.store');
+        Route::get('/delete/{employe}', [EmployeController::class, 'delete'])->name('employe.delete');
+
     });
 });

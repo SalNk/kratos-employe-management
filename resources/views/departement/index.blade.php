@@ -82,20 +82,24 @@
                                         @forelse ($departements as $departement)
                                             <tr>
                                                 <td class="cell">{{ $departement->id }} </td>
-                                                <td class="cell"><span class="truncate">{{ $departement->name }}</span></td>
+                                                <td class="cell"><span class="truncate">{{ $departement->name }}</span>
+                                                </td>
                                                 <td class="cell"> </td>
                                                 </td>
-                                                <td class="cell"><span class="badge {{ $departement->color }}">{{ $departement->status }}</span></td>
+                                                <td class="cell"><span
+                                                        class="badge {{ $departement->color }}">{{ $departement->status }}</span>
+                                                </td>
                                                 <td class="cell">
                                                     <a class="btn-sm app-btn-secondary"
                                                         href={{ route('departement.edit', $departement->id) }}>Edit</a>
-                                                        <a class="btn-sm app-btn-secondary"
-                                                            href={{ route('departement.delete', $departement->id) }}>Retirer</a>
+                                                    <a class="btn-sm app-btn-secondary"
+                                                        href={{ route('departement.delete', $departement->id) }}>Retirer</a>
                                                 </td>
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td class="cell text-center h4 p-4" colspan="6">Aucun département trouvé</td>
+                                                <td class="cell text-center h4 p-4" colspan="6">Aucun département trouvé
+                                                </td>
                                                 </td>
                                             </tr>
                                         @endforelse
