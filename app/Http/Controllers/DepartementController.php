@@ -20,8 +20,6 @@ class DepartementController extends Controller
     }
     public function store(Departement $departement, saveDepartementRequest $request)
     {
-        // Add [name] to fillable property to allow mass assignment on [App\Models\Departement]." quand les varibales ne sont pas protégées
-        // Non-static method Illuminate\Database\Eloquent\Model::update() cannot be called statically
         try {
             $departement::create([
                 'name' => $request->name,
