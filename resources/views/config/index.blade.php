@@ -84,16 +84,18 @@
                                         @forelse ($allConfiguration as $config)
                                             <tr>
                                                 <td class="cell">{{ $config->id }} </td>
-                                                <td class="cell"><span class="truncate">{{ $config->name }}</span>
-                                                </td>
-                                                <td class="cell"> </td>
-                                                </td>
-                                                <td class="cell"><span
-                                                        class="badge {{ $config->color }}">{{ $config->status }}</span>
+                                                <td class="cell">
+                                                    <span class="truncate">
+                                                        {{ $config->type }}
+                                                    </span>
                                                 </td>
                                                 <td class="cell">
-                                                    <a class="btn-sm app-btn-secondary"
-                                                        href={{ route('config.edit', $config->id) }}>Edit</a>
+                                                    <span class="truncate">
+                                                        {{ $config->value }}
+                                                    </span>
+                                                </td>
+
+                                                <td class="cell">
                                                     <a class="btn-sm app-btn-secondary"
                                                         href={{ route('config.delete', $config->id) }}>Retirer</a>
                                                 </td>
@@ -108,7 +110,6 @@
                                     </tbody>
                                 </table>
                             </div><!--//table-responsive-->
-
                         </div><!--//app-card-body-->
                     </div><!--//app-card-->
                     <nav class="app-pagination">
@@ -123,6 +124,5 @@
     </div><!--//app-content-->
 
     <script>
-    <script>
-
-@endsection
+        < script >
+        @endsection

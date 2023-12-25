@@ -18,8 +18,12 @@ class DepartementController extends Controller
     {
         return view('departement.create');
     }
+
+
     public function store(Departement $departement, saveDepartementRequest $request)
     {
+        dd($request);
+
         try {
             $departement::create([
                 'name' => $request->name,
@@ -29,7 +33,7 @@ class DepartementController extends Controller
         } catch (Exception $e) {
             dd($e);
         }
-    }
+    }   
 
     public function edit(Departement $departement)
     {

@@ -15,7 +15,7 @@
                     <div class="app-card app-card-settings shadow-sm p-4">
 
                         <div class="app-card-body">
-                            <form class="settings-form" method="POST" action='{{ route('departement.store') }}'>
+                            <form class="settings-form" method="POST" action={{ route('config.store') }}>
                                 @csrf
                                 @method('post')
 
@@ -23,17 +23,22 @@
                                     <div class="mb-3 row">
                                         <div class="col-md-12">
                                             <label for="setting-input-1" class="form-label">Type</label>
-                                            <select class="form-select" name="tyoe">
+                                            <select class="form-select" name="type">
                                                 <option selected value="PAYMENT_DATE">Date de payement</option>
                                                 <option value="APP_NAME">Nom de l'application</option>
                                                 <option value="DEVELOPPER_NAME">Equipe de développement</option>
                                                 <option value="ANOTHER">Autre option</option>
                                             </select>
+                                           <div class="text-danger">
+                                            @error('type')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="setting-input-1" class="form-label">Valeur</label>
-                                        <input type="text" class="form-control" id="setting-input-1" name="valeur"
+                                        <input type="text" class="form-control" id="setting-input-1" name="value"
                                             placeholder="Saisir la valeur" value={{ old('value') }}>
                                         <div class="text-danger">
                                             @error('value')

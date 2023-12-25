@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/configuration')->group(function () {
             Route::get('/', [ConfigurationController::class, 'index'])->name('config.index');
             Route::get('/create', [ConfigurationController::class, 'create'])->name('config.create');
+            Route::post('/create', [ConfigurationController::class, 'store'])->name('config.store');
+            Route::get('/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('config.delete');
         });
     });
 });
