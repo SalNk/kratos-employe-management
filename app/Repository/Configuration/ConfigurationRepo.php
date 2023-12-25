@@ -4,7 +4,7 @@ namespace App\Repository\Configuration;
 
 use App\Models\Configuration;
 
-class DepartmentRepo implements ConfigContract
+class DepartmentRepo implements ConfigurationContract
 {
     public function toAdd(array $inputs)
     {
