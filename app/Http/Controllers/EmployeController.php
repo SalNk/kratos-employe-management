@@ -22,7 +22,6 @@ class EmployeController extends Controller
     {
         $departements = Departement::all();
         return view('employe.create', compact('departements'));
-        ;
     }
 
     public function edit(Employe $employe)
@@ -33,6 +32,8 @@ class EmployeController extends Controller
 
     public function update(Employe $employe, UpdateEmployeRequest $request)
     {
+        dd($request->all());
+
         $employe->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -82,12 +83,3 @@ class EmployeController extends Controller
         }
     }
 }
-
-// public function toGetUniversityAcademicYear($university_id): \Illuminate\Support\Collection
-// 	{
-// 		$academicYearUniversity = AcademicYearUniversity::join('academic_years', 'academic_years.id', '=', 'academic_year_universities.academic_year_id')
-// 			->select('academic_years.*', 'status','apply_open','academic_year_universities.id as academic_year_university_id')
-// 			->where('university_id', $university_id)
-// 			->get();
-// 		return $academicYearUniversity;
-// 	}

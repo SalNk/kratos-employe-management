@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository\Worker;
+
 use App\Models\Employe;
 
 class WorkerRepo implements Workercontract
@@ -43,5 +44,12 @@ class WorkerRepo implements Workercontract
         $worker = Employe::findOrFail($id);
 
         return $worker;
+    }
+
+    public function toGetByDepartment($departement_id)
+    {
+        $workers = Employe::where('department_id', $departement_id)->get();
+
+        return $workers;
     }
 }
