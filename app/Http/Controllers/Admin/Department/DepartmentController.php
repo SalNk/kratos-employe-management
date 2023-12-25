@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Department;
+namespace App\Http\Controllers\Admin\Department;
 
 use App\Http\Requests\saveDepartementRequest;
 use App\Models\Departement;

@@ -22,7 +22,7 @@ class DepartementController extends Controller
 
     public function store(Departement $departement, saveDepartementRequest $request)
     {
-        dd($request);
+        // dd($request);
 
         try {
             $departement::create([
