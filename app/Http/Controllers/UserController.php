@@ -37,7 +37,9 @@ class UserController extends Controller
     public function handleRegister(UserRequest $request)
     {
         // dd($request);
-        
+
+     $user = User::where('name', $request->name)->get();
+     dd($user);
 
         if ($request) {
             User::create([

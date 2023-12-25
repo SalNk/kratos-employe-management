@@ -2,17 +2,30 @@
 
 namespace App\Http\Controllers\Department;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\saveDepartementRequest;
+use App\Models\Departement;
+use App\Repository\Departement\DepartmentContract;
+use App\Utils\ConstantName;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DepartmentController extends Controller
 {
+    protected DepartmentContract $departmentContract;
+
+    public function __construct(
+        DepartmentContract $_departmentContract
+    ) {
+        $this->departmentContract = $_departmentContract;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $departements = Departement::paginate(10);
+        return view('departement.index', compact('departements'));
     }
 
     /**
@@ -20,15 +33,20 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departement.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(saveDepartementRequest $request)
     {
-        //
+        $inputs = $request->all();
+
+        $this->departmentContract->toAdd($inputs);
+
+        return redirect()->route('departement.index')->with('success', ConstantName::STORE_DEPARTMENT_SUCCESS);
+
     }
 
     /**
@@ -42,17 +60,24 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
-        //
+        return view('departement.edit', compact('departement'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(saveDepartementRequest $request, int $id)
     {
-        //
+        $inputs = $request->all();
+
+        $item = $this->departmentContract->toGetById($id);
+        if (empty($item)) {
+            return back();
+        }
+        $this->departmentContract->toUpdate($inputs, $id);
+        return redirect()->route('admin.course')->with('message', ConstantName::UPDATE_DEPARTMENT_SUCCESS);
     }
 
     /**
@@ -60,6 +85,12 @@ class DepartmentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = $this->departmentContract->toGetById($id);
+
+        if (empty($item)) {
+            return back();
+        }
+        $this->departmentContract->toDelete($id);
+        return redirect()->route('departement.index')->with('success', ConstantName::DELETE_DEPARTMENT_SUCCESS);
     }
 }
