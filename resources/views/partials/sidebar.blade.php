@@ -3,8 +3,7 @@
      <div class="sidepanel-inner d-flex flex-column">
          <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
          <div class="app-branding">
-             <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg"
-                     alt="logo"><span class="logo-text">PORTAL</span></a>
+             <a class="app-logo" href="index.html"><span class="logo-text">Gestion d'employes</span></a>
 
          </div><!--//app-branding-->
 
@@ -24,7 +23,7 @@
                          <span class="nav-link-text">Dashboard</span>
                      </a><!--//nav-link-->
                  </li><!--//nav-item-->
-                 <li class="nav-item">
+                 {{-- <li class="nav-item">
                      <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                      <a class="nav-link" href="docs.html">
                          <span class="nav-icon">
@@ -38,7 +37,7 @@
                          </span>
                          <span class="nav-link-text">Docs</span>
                      </a><!--//nav-link-->
-                 </li><!--//nav-item-->
+                 </li><!--//nav-item--> --}}
                  <li class="nav-item has-submenu">
                      <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                      <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
@@ -62,8 +61,10 @@
                      </a><!--//nav-link-->
                      <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
                          <ul class="submenu-list list-unstyled">
-                             <li class="submenu-item"><a class="submenu-link" href={{ route('departement.index') }}>Liste</a></li>
-                             <li class="submenu-item"><a class="submenu-link" href={{ route('departement.create') }}>Ajouter</a></li>
+                             <li class="submenu-item"><a class="submenu-link"
+                                     href={{ route('departement.index') }}>Liste</a></li>
+                             <li class="submenu-item"><a class="submenu-link"
+                                     href={{ route('departement.create') }}>Ajouter</a></li>
                          </ul>
                      </div>
                  </li><!--//nav-item-->
@@ -108,7 +109,7 @@
                  <ul class="app-menu footer-menu list-unstyled">
                      <li class="nav-item">
                          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                         <a class="nav-link" href={{ route('config.index') }}>
+                         <a class="nav-link" href={{ route('login') }}>
                              <span class="nav-icon">
                                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -118,10 +119,10 @@
                                          d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
                                  </svg>
                              </span>
-                             <span class="nav-link-text">Configuration</span>
+                             <span class="nav-link-text">Déconnecter</span>
                          </a><!--//nav-link-->
                      </li><!--//nav-item-->
-                     <li class="nav-item">
+                     {{-- <li class="nav-item">
                          <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                          <a class="nav-link"
                              href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
@@ -151,7 +152,7 @@
                              </span>
                              <span class="nav-link-text">License</span>
                          </a><!--//nav-link-->
-                     </li><!--//nav-item-->
+                     </li><!--//nav-item--> --}}
                  </ul><!--//footer-menu-->
              </nav>
          </div><!--//app-sidepanel-footer-->

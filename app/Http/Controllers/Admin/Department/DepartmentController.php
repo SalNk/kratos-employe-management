@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Department;
 
-use App\Http\Requests\saveDepartementRequest;
 use App\Models\Departement;
-use App\Repository\Departement\DepartmentContract;
 use App\Utils\ConstantName;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\saveDepartementRequest;
+use App\Repository\Department\DepartmentContract;
 
 class DepartmentController extends Controller
 {

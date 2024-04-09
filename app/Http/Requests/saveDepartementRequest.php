@@ -22,12 +22,13 @@ class saveDepartementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:departements,name'
+            'name' => 'required'
         ];
     }
 
-    public function messages(){
-        return[
+    public function messages()
+    {
+        return [
             'name.required' => 'Le nom du département est requis',
             'name.unique' => 'Le nom du département choisi existe déjà',
         ];

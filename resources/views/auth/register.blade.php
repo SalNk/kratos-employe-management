@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-     <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -28,7 +28,7 @@
                 <div class="app-auth-body mx-auto">
                     <div class="app-auth-branding mb-4">
                         <a class="app-logo" href="index.html">
-                            <img class="logo-icon me-2" src={{ asset('images/app-logo.svg') }} alt="logo">
+                            {{-- <img class="logo-icon me-2" src={{ asset('images/app-logo.svg') }} alt="logo"> --}}
                         </a>
                     </div>
                     <h2 class="auth-heading text-center mb-4">Créer un compte</h2>
@@ -39,9 +39,9 @@
                             @method('POST')
 
                             <div class="email mb-3">
-                                <label class="sr-only" for="name">Your Name</label>
+                                <label class="sr-only" for="name">Nom complet</label>
                                 <input id="name" name="name" type="text" value="{{ old('text') }}"
-                                    class="form-control name" placeholder="Full name" required="required">
+                                    class="form-control name" placeholder="Nom complet" required="required">
                                 @error('name')
                                     <p class="text-danger" style="font-size: 13px;">{{ $message }}</p>
                                 @enderror
@@ -59,13 +59,13 @@
                             <div class="password mb-3">
                                 <label class="sr-only" for="password">Password</label>
                                 <input id="password" name="password" type="password" value="{{ old('password') }}"
-                                    class="form-control password" placeholder="Create a password" required="required">
+                                    class="form-control password" placeholder="Mot de passe" required="required">
                                 @error('password')
                                     <p class="text-danger" style="font-size: 13px;">{{ $message }}</p>
                                 @enderror
 
                             </div>
-                            <div class="extra mb-3">
+                            {{-- <div class="extra mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value=""
                                         id="RememberPassword">
@@ -74,7 +74,7 @@
                                         <a href="#" class="app-link">Privacy Policy</a>.
                                     </label>
                                 </div>
-                            </div><!--//extra-->
+                            </div><!--//extra--> --}}
 
                             <div class="text-center">
                                 <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign
@@ -82,15 +82,15 @@
                             </div>
                         </form><!--//auth-form-->
 
-                        <div class="auth-option text-center pt-5">Already have an account? <a class="text-link"
-                                href={{ route('login') }}>Log in</a></div>
+                        <div class="auth-option text-center pt-5">Vous avez déjà un compte? <a class="text-link"
+                                href={{ route('login') }}>Se connecter</a></div>
                     </div><!--//auth-form-container-->
 
 
 
                 </div><!--//auth-body-->
 
-                <footer class="app-auth-footer">
+                {{-- <footer class="app-auth-footer">
                     <div class="container text-center py-3">
                         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
                         <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart"
@@ -99,7 +99,7 @@
                             developers</small>
 
                     </div>
-                </footer><!--//app-auth-footer-->
+                </footer><!--//app-auth-footer--> --}}
             </div><!--//flex-column-->
         </div><!--//auth-main-col-->
         <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
@@ -110,10 +110,9 @@
                 <div class="d-flex flex-column align-content-end h-100">
                     <div class="h-100"></div>
                     <div class="overlay-content p-3 p-lg-4 rounded">
-                        <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>
-                        <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the
-                            template license <a
-                                href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.
+                        <h5 class="mb-3 overlay-title">L'app qu'il vous faut</h5>
+                        <div>L'espace admin qu'il vous faut pour lister tous vos employes ainsi que les dépratemnts de
+                            votre entreprise.
                         </div>
                     </div>
                 </div>

@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Repository\Departement;
+namespace App\Repository\Department;
 
 use App\Models\Departement;
+use Illuminate\Database\Eloquent\Model;
+use App\Repository\Department\DepartmentContract;
 
 class DepartmentRepo implements DepartmentContract
 {
-    public function toAdd(array $inputs)
+    public function toAdd(array $inputs): Model
     {
         $department = Departement::create($inputs);
 
         return $department;
     }
 
-    public function toUpdate(array $inputs, $id)
+    public function toUpdate(array $inputs, $id): Model
     {
         $department = $this->toGetById($id);
 
@@ -24,7 +26,7 @@ class DepartmentRepo implements DepartmentContract
         return $department;
     }
 
-    public function toDelete($id)
+    public function toDelete($id): Model
     {
         $department = $this->toGetById($id);
         $department->delete();
@@ -39,7 +41,7 @@ class DepartmentRepo implements DepartmentContract
         return $departments;
     }
 
-    public function toGetById($id)
+    public function toGetById($id): Model|null
     {
         $department = Departement::findOrFail($id);
 

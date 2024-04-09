@@ -50,7 +50,7 @@
             </div><!--//row-->
 
 
-            <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+            {{-- <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
                 <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
                     href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Départements</a>
                 <a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
@@ -60,7 +60,7 @@
                 <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
                     href="#orders-cancelled" role="tab" aria-controls="orders-cancelled"
                     aria-selected="false">Cancelled</a>
-            </nav>
+            </nav> --}}
 
             @if (Session::get('success'))
                 <div class="alert alert-success">
@@ -102,7 +102,8 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td class="cell text-center h4 p-4" colspan="6">Aucun département trouvé
+                                                <td class="cell text-center h4 p-4" colspan="6">Aucune configuration
+                                                    trouvée
                                                 </td>
                                                 </td>
                                             </tr>

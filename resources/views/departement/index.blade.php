@@ -15,10 +15,10 @@
                                 <form class="table-search-form row gx-1 align-items-center">
                                     <div class="col-auto">
                                         <input type="text" id="search-orders" name="searchorders"
-                                            class="form-control search-orders" placeholder="Search">
+                                            class="form-control search-orders" placeholder="Rechercher">
                                     </div>
                                     <div class="col-auto">
-                                        <button type="submit" class="btn app-btn-secondary">Search</button>
+                                        <button type="submit" class="btn app-btn-secondary">Rechercher</button>
                                     </div>
                                 </form>
 
@@ -27,9 +27,9 @@
 
                                 <select class="form-select w-auto">
                                     <option selected value="option-1">All</option>
-                                    <option value="option-2">This week</option>
-                                    <option value="option-3">This month</option>
-                                    <option value="option-4">Last 3 months</option>
+                                    <option value="option-2">Actif</option>
+                                    <option value="option-3">Suspendu</option>
+                                    <option value="option-4">En congé</option>
 
                                 </select>
                             </div>
@@ -50,7 +50,7 @@
             </div><!--//row-->
 
 
-            <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+            {{-- <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
                 <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
                     href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Départements</a>
                 <a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
@@ -60,7 +60,7 @@
                 <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
                     href="#orders-cancelled" role="tab" aria-controls="orders-cancelled"
                     aria-selected="false">Cancelled</a>
-            </nav>
+            </nav> --}}
 
             @if (Session::get('success'))
                 <div class="alert alert-success">
@@ -88,10 +88,18 @@
                                                 <td class="cell">{{ $departement->id }} </td>
                                                 <td class="cell"><span class="truncate">{{ $departement->name }}</span>
                                                 </td>
-                                                <td class="cell"> </td>
+                                                <td class="cell">
+                                                    {{ $departement->employes->count() }}
                                                 </td>
-                                                <td class="cell"><span
-                                                        class="badge {{ $departement->color }}">{{ $departement->status }}</span>
+                                                </td>
+                                                <td class="cell">
+                                                    <span
+                                                        class="px-2 text-white
+                                                        {{ $departement->status == 'Actif' ? 'bg-success' : '' }} 
+                                                        {{ $departement->status == 'Suspendu' ? 'bg-danger' : 'bg-secondary' }} 
+                                                     ">
+                                                        {{ $departement->status }}
+                                                    </span>
                                                 </td>
                                                 <td class="cell">
                                                     <a class="btn-sm app-btn-secondary"
@@ -149,8 +157,7 @@
                                             </td>
                                             <td class="cell"><span class="badge bg-success">Paid</span></td>
                                             <td class="cell">$259.35</td>
-                                            <td class="cell"><a class="btn-sm app-btn-secondary"
-                                                    href="#">View</a>
+                                            <td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a>
                                             </td>
                                         </tr>
 
@@ -282,6 +289,5 @@
     </div><!--//app-content-->
 
     <script>
-    <script>
-
-@endsection
+        < script >
+        @endsection

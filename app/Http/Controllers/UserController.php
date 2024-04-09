@@ -39,7 +39,7 @@ class UserController extends Controller
         // dd($request);
 
      $user = User::where('name', $request->name)->get();
-     dd($user);
+    //  dd($user);
 
         if ($request) {
             User::create([

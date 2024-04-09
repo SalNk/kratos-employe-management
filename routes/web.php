@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\ConfigurationController;
-use App\Http\Controllers\DepartementController;
-use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\ConfigurationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,7 @@ use App\Http\Controllers\PageController;
 */
 
 
+Route::get('/', [UserController::class, 'login'])->name('login');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'handleLogin'])->name('login');
 
@@ -30,13 +31,13 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/dashboard', [PageController::class, 'show'])->name('dashboard');
 
-        Route::prefix('/departement')->group(function () {
+        Route::prefix('/department')->group(function () {
             Route::get('/', [DepartementController::class, 'index'])->name('departement.index');
             Route::get('/create', [DepartementController::class, 'create'])->name('departement.create');
             Route::post('/create', [DepartementController::class, 'store'])->name('departement.store');
-            Route::get('/edit/{departement}', [DepartementController::class, 'edit'])->name('departement.edit');
-            Route::get('/update/{departement}', [DepartementController::class, 'update'])->name('departement.update');
-            Route::get('/delete/{departement}', [DepartementController::class, 'delete'])->name('departement.delete');
+            Route::get('/edit/{id}', [DepartementController::class, 'edit'])->name('departement.edit');
+            Route::get('/update/{department}', [DepartementController::class, 'update'])->name('departement.update');
+            Route::get('/delete/{id}', [DepartementController::class, 'delete'])->name('departement.delete');
         });
 
         Route::prefix('/employe')->group(function () {

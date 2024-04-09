@@ -23,13 +23,13 @@
 
 <body class="app">
     <header class="app-header fixed-top">
-        @include('partials.navbar')
+        {{-- @include('partials.navbar') --}}
         @include('partials.sidebar')
     </header><!--//app-header-->
 
     <div class="app-wrapper">
 
-         @yield('content')
+        @yield('content')
 
         @include('partials.footer')
 

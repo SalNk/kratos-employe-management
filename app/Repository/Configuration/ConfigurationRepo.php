@@ -3,17 +3,18 @@
 namespace App\Repository\Configuration;
 
 use App\Models\Configuration;
+use Illuminate\Database\Eloquent\Model;
 
 class DepartmentRepo implements ConfigurationContract
 {
-    public function toAdd(array $inputs)
+    public function toAdd(array $inputs): Model
     {
         $config = Configuration::create($inputs);
 
         return $config;
     }
 
-    public function toUpdate(array $inputs, $id)
+    public function toUpdate(array $inputs, $id): Model
     {
         $config = $this->toGetById($id);
 
@@ -24,7 +25,7 @@ class DepartmentRepo implements ConfigurationContract
         return $config;
     }
 
-    public function toDelete($id)
+    public function toDelete($id): Model
     {
         $config = $this->toGetById($id);
         $config->delete();
@@ -39,7 +40,7 @@ class DepartmentRepo implements ConfigurationContract
         return $configs;
     }
 
-    public function toGetById($id)
+    public function toGetById($id):Model|null
     {
         $config = Configuration::findOrFail($id);
 

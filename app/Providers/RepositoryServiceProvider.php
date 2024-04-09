@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Repository\Departement\Departmentcontract;
-use App\Repository\Departement\DepartmentRepo;
 use Illuminate\Support\ServiceProvider;
+use App\Repository\Department\DepartmentRepo;
+use App\Repository\Department\DepartmentContract;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -13,7 +13,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(Departmentcontract::class, DepartmentRepo::class);
+        $this->app->bind(DepartmentContract::class, DepartmentRepo::class);
     }
 
     /**

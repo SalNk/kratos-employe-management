@@ -11,7 +11,7 @@ class DepartementController extends Controller
 {
     public function index()
     {
-        $departements = Departement::paginate(10);
+        $departements = Departement::with('employes')->paginate(10);
         return view('departement.index', compact('departements'));
     }
     public function create()
@@ -33,15 +33,17 @@ class DepartementController extends Controller
         } catch (Exception $e) {
             dd($e);
         }
-    }   
+    }
 
-    public function edit(Departement $departement)
+    public function edit($id)
     {
+        $departement = Departement::findOrFail($id);
         return view('departement.edit', compact('departement'));
     }
-    public function update(Departement $departement, saveDepartementRequest $request)
+    public function update($id, saveDepartementRequest $request)
     {
         try {
+            $departement = Departement::findOrFail($id);
             $departement->name = $request->name;
             $departement->status = $request->status;
 
@@ -52,9 +54,10 @@ class DepartementController extends Controller
         }
     }
 
-    public function delete(Departement $departement)
+    public function delete($id)
     {
         try {
+            $departement = Departement::findOrFail($id);
             $departement->delete();
 
             return redirect()->route('departement.index')->with('success', 'Département supprimé');
