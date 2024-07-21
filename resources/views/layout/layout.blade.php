@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+    <title>Gestion d'employes</title>
 
     <!-- Meta -->
     <meta charset="utf-8">

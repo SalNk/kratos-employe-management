@@ -12,26 +12,18 @@
                     <div class="page-utilities">
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto">
-                                <form class="table-search-form row gx-1 align-items-center">
+                                <form class="row gx-1 align-items-center" action={{ route('employe.search') }}
+                                    method="POST">
+                                    @csrf
+                                    @method('POST')
                                     <div class="col-auto">
-                                        <input type="text" id="search-orders" name="searchorders"
-                                            class="form-control search-orders" placeholder="Search">
+                                        <input type="text" id="search-orders" name="word"
+                                            class="form-control search-orders" placeholder="Rechercher">
                                     </div>
                                     <div class="col-auto">
-                                        <button type="submit" class="btn app-btn-secondary">Search</button>
+                                        <button type="submit" class="btn app-btn-secondary">Rechercher</button>
                                     </div>
                                 </form>
-
-                            </div><!--//col-->
-                            <div class="col-auto">
-
-                                <select class="form-select w-auto">
-                                    <option selected value="option-1">All</option>
-                                    <option value="option-2">This week</option>
-                                    <option value="option-3">This month</option>
-                                    <option value="option-4">Last 3 months</option>
-
-                                </select>
                             </div>
                             <div class="col-auto d-flex place-items-center align-items-center justify-content-center">
                                 <a class="btn app-btn-secondary" href={{ route('employe.create') }}>
@@ -95,7 +87,7 @@
                                                 <td class="cell">{{ $employe->departement->name }}</td>
                                                 <td class="cell">
                                                     <a class="btn-sm app-btn-secondary"
-                                                        href={{ route('employe.edit', $employe->id) }}>Edit</a>
+                                                        href={{ route('employe.edit', $employe->id) }}>Modifier</a>
                                                     <a class="btn-sm app-btn-secondary"
                                                         href={{ route('employe.delete', $employe->id) }}>Retirer</a>
                                                 </td>

@@ -7,9 +7,7 @@
             <hr class="mb-4">
             <div class="row g-4 settings-section">
                 <div class="col-12 col-md-4">
-                    <h3 class="section-title">General</h3>
-                    <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
+                    <h3 class="section-title">Information générale</h3>
                 </div>
                 <div class="col-12 col-md-8">
                     <div class="app-card app-card-settings shadow-sm p-4">
@@ -33,7 +31,7 @@
                                     <div class="col-md-6">
                                         <label for="setting-input-1" class="form-label">Nom</label>
                                         <input type="text" class="form-control" id="setting-input-1"
-                                            placeholder="Saisir le Nom" name="nom"  value={{ old('nom') }}>
+                                            placeholder="Saisir le Nom" name="nom" value={{ old('nom') }}>
                                         @error('nom')
                                             <p class="text-danger" style="font-size: 13px;">{{ $message }}</p>
                                         @enderror
@@ -41,8 +39,7 @@
                                     <div class="col-md-6">
                                         <label for="setting-input-2" class="form-label">Prénom</label>
                                         <input type="text" class="form-control" id="setting-input-2"
-                                            placeholder="Saisir le Prénom" name="prenom" 
-                                            value={{ old('prenom') }}>
+                                            placeholder="Saisir le Prénom" name="prenom" value={{ old('prenom') }}>
                                         @error('prenom')
                                             <p class="text-danger" style="font-size: 13px;">{{ $message }}</p>
                                         @enderror
@@ -66,7 +63,7 @@
                                             <p class="text-danger" style="font-size: 13px;">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="setting-input-1" class="form-label">Montant journalier</label>
                                         <input type="number" class="form-control" id="setting-input-1"
                                             placeholder="Saisir le montant journalier" name="montant_journalier" 
@@ -74,7 +71,7 @@
                                         @error('montant_journalier')
                                             <p class="text-danger" style="font-size: 13px;">{{ $message }}</p>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <button type="submit" class="btn app-btn-primary">Enregistrer</button>
                             </form>

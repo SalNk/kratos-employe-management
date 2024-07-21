@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreConfigurationRequest extends FormRequest
+class RendezVousRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,20 @@ class StoreConfigurationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => 'required|unique:configurations,type',
-            'value' => 'required'
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+            'status' => 'required',
         ];
     }
 
-    public function messages(){
-        return[
-            'type.required' => 'Le type de la configuration est requis',
-            'type.unique' => 'Le type saisi existe déjà',
-            'value.required' => 'La valeur de la configuration est requise'
+    public function messages()
+    {
+        return [
+            'title' => 'Veillez saisir le titre',
+            'description.required' => 'La description est requise',
+            'date.required' => 'La date est requise',
+            'status.required' => 'Le statut est requis',
         ];
     }
 }

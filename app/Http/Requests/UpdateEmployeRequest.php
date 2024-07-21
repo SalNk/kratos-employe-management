@@ -27,10 +27,9 @@ class UpdateEmployeRequest extends FormRequest
             'prenom' => 'required|min:3',
             'email' => 'required',
             'contact' => 'required',
-            'montant_journalier' => 'required'
         ];
     }
-
+    
     public function messages()
     {
         return [

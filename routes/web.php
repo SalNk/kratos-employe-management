@@ -5,7 +5,9 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\DepartementController;
-use App\Http\Controllers\ConfigurationController;
+use App\Http\Controllers\RendezVousController;
+use App\Http\Controllers\SalaireController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', [DepartementController::class, 'edit'])->name('departement.edit');
             Route::get('/update/{department}', [DepartementController::class, 'update'])->name('departement.update');
             Route::get('/delete/{id}', [DepartementController::class, 'delete'])->name('departement.delete');
+            Route::post('/department/search/', [DepartementController::class, 'search'])->name('departement.search');
         });
 
         Route::prefix('/employe')->group(function () {
@@ -47,13 +50,26 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{employe}', [EmployeController::class, 'edit'])->name('employe.edit');
             Route::get('/delete/{employe}', [EmployeController::class, 'delete'])->name('employe.delete');
             Route::get('/update/{employe}', [EmployeController::class, 'update'])->name('employe.update');
+            Route::post('/employe/search/', [EmployeController::class, 'search'])->name('employe.search');
         });
 
-        Route::prefix('/configuration')->group(function () {
-            Route::get('/', [ConfigurationController::class, 'index'])->name('config.index');
-            Route::get('/create', [ConfigurationController::class, 'create'])->name('config.create');
-            Route::post('/create', [ConfigurationController::class, 'store'])->name('config.store');
-            Route::get('/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('config.delete');
+        Route::prefix('/rendez-vous')->group(function () {
+            Route::get('/', [RendezVousController::class, 'index'])->name('rdv.index');
+            Route::post('/create', [RendezVousController::class, 'store'])->name('rdv.store');
+            Route::get('/create', [RendezVousController::class, 'create'])->name('rdv.create');
+            Route::get('/edit/{rdv}', [RendezVousController::class, 'edit'])->name('rdv.edit');
+            Route::get('/delete/{rdv}', [RendezVousController::class, 'delete'])->name('rdv.delete');
+            Route::get('/update/{rdv}', [RendezVousController::class, 'update'])->name('rdv.update');
+        });
+
+        Route::prefix('/salaires')->group(function () {
+            Route::get('/', [SalaireController::class, 'index'])->name('salaire.index');
+            Route::post('/create', [SalaireController::class, 'store'])->name('salaire.store');
+            Route::get('/create', [SalaireController::class, 'create'])->name('salaire.create');
+            Route::get('/edit/{salaire}', [SalaireController::class, 'edit'])->name('salaire.edit');
+            Route::get('/delete/{salaire}', [SalaireController::class, 'delete'])->name('salaire.delete');
+            Route::get('/update/{salaire}', [SalaireController::class, 'update'])->name('salaire.update');
+            Route::post('/salaire/search/', [SalaireController::class, 'search'])->name('salaire.search');
         });
     });
 });

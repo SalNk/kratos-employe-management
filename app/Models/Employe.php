@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Salaire;
 use App\Models\Departement;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employe extends Model
 {
@@ -15,5 +16,10 @@ class Employe extends Model
     public function departement()
     {
         return $this->belongsTo(Departement::class);
+    }
+
+    public function salaires()
+    {
+        return $this->hasMany(Salaire::class);
     }
 }

@@ -15,7 +15,6 @@ class EmployeController extends Controller
     {
         $employes = Employe::with('departement')->paginate(10);
 
-        // dd($employes);
         return view('employe.index', compact('employes'));
     }
     public function create()
@@ -32,34 +31,15 @@ class EmployeController extends Controller
 
     public function update(Employe $employe, UpdateEmployeRequest $request)
     {
-        dd($request->all());
-
         $employe->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
             'contact' => $request->contact,
-            'montant_journalier' => $request->montant_journalier,
             'departement_id' => $request->departement_id
         ]);
 
         return redirect()->route('employe.index')->with('success', 'Employé mis à jour');
-
-
-
-
-        // try {
-        //     $employe->name = $request->name;
-        //     $employe->status = $request->status;
-
-        //     $employe->save();
-        //     return redirect()->route('employe.index')->with('success', 'Employé mis à jour');
-        // } catch (Exception $e) {
-        //     dd($e);
-        // }
-
-
-
     }
 
     public function store(EmployeRequest $request)
@@ -81,5 +61,16 @@ class EmployeController extends Controller
         } catch (Exception $e) {
             dd($e);
         }
+    }
+
+    public function search(Request $request)
+    {
+        $employes = Employe::with('departement')
+            ->whereRaw('LOWER(nom) LIKE ?', ['%' . strtolower($request->word) . '%'])
+            ->orWhereRaw('LOWER(email) LIKE ?', ['%' . strtolower($request->word) . '%'])
+            ->orWhereRaw('LOWER(prenom) LIKE ?', ['%' . strtolower($request->word) . '%'])
+            ->paginate(10);
+
+        return view('employe.index', compact('employes'));
     }
 }

@@ -32,7 +32,7 @@
                                 class="logo-icon me-2" src={{ asset('images/app-logo.svg') }} alt="logo">
                             </a> --}}
                     </div>
-                    <h2 class="auth-heading text-center mb-5">Connexion</h2>
+                    <h2 class="auth-heading text-center mb-5"><div class="3"></div></h2>
                     <div class="auth-form-container text-start">
 
                         <form class="auth-form login-form" method="post" action="{{ route('login') }}">
@@ -83,8 +83,7 @@
                                 </div><!--//extra--> --}}
                             </div><!--//form-group-->
                             <div class="text-center">
-                                <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Log
-                                    In</button>
+                                <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Connexion</button>
                             </div>
                         </form>
 

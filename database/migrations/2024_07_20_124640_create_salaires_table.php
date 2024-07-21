@@ -10,12 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('configurations', function (Blueprint $table) {
+        Schema::create('salaires', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['PAYMENT_DATE', 'APP_NAME', 'DEVELOPPER_NAME', 'ANOTHER'])
-                ->default('ANOTHER')
-                ->comment('table de configuration');
-            $table->string('value');
+            $table->unsignedBigInteger('employe_id');
+            $table->foreign('employe_id')->references('id')->on('employes');
+            $table->integer('montant')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('configurations');
+        Schema::dropIfExists('salaires');
     }
 };
